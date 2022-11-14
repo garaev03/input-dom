@@ -151,17 +151,30 @@ function getUser(){
         for(i=1;i<=resp.data.length-1;i++){
             response=resp.data[i]
             let dv=document.createElement("div")
+            let pdv=document.createElement("div")
             let li=document.createElement("li")
             let p2=document.createElement("p")
+            let p3=document.createElement("p")
+            let p4=document.createElement("p")
             dv.setAttribute("class","ms-4 d-flex  justify-content-between")
             li.setAttribute("class","pt-4 pb-4")
-            p2.setAttribute("class","rounded border border-primary m-4 p-3")
+            p2.setAttribute("class","rounded-bottom rounded-end border border-primary me-4 p-3")
+            p2.setAttribute("style","background-color: #dcdbdd; width:435px")
+            pdv.setAttribute("class","d-flex pt-4 pb-4")
+            p4.setAttribute("class","border border-end-0 rounded-start border-primary pe-2 pb-2 ps-2 pt-1")
+            p4.setAttribute("style","background-color: #f3f2f3")
+
             ol.appendChild(dv)
             dv.appendChild(li)
-            dv.appendChild(p2)
+            dv.appendChild(pdv) 
+            pdv.appendChild(p3)
+            p3.appendChild(p4)
+            pdv.appendChild(p2)
+            
+            
             li.innerHTML="id: "+response.id+"<br>"+"name:  "+response.name+"<br>"+"username:  "+response.username+"<br>"+"e-mail:  "+response.email+"<br>"+"address: "+"<ul type='none' class='ms-3 ps-5'"+"<li>"+"street: "+response.address.street+"</li>"+"<li>"+"suite: "+response.address.suite+"</li>"+"<li>"+"city: "+response.address.city+"</li>"+"<li>"+"zipcode: "+response.address.zipcode+"</li>"+"<li>"+"geo: "+"<ul class='ms-3 ps-5'>"+"<li>"+"lat: "+response.address.geo.lat+"</li>"+"<li>"+"lng: "+response.address.geo.lng+"</li>"
             p2.innerHTML="phone: "+response.phone+"<br>"+"website: "+"<a href='response.website'>"+response.website+"</a>"+"<br>"+"company: "+"<ul>"+"<li>"+"name: "+response.company.name+"</li>"+"<li>"+"catchPhrase: "+response.company.catchPhrase+"</li>"+"<li>"+"bs: "+response.company.bs+"</li>"
-            
+            p4.innerHTML="<i class='fa-regular fa-building'></i> Company"
             let hr=document.createElement("hr")
             hr.setAttribute("class","m-1")
             ol.appendChild(hr)
